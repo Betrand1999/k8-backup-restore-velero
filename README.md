@@ -27,16 +27,29 @@ aws_secret_access_key=
 3. Velero installation to K8
 
 ```bash
-export BUCKET=k8-backup
-export REGION=ap-south-1
+export BUCKET=velero-terraform-backuppp  # name of your bucket
+export REGION=us-east-1
+[default]
+aws_access_key_id = YOUR_ACCESS_KEY_ID
+aws_secret_access_key = YOUR_SECRET_ACCESS_KEY
+
+
+[default]
+region = us-east-1
+aws_access_key_id = AKIAQCXR5UFBHATIRAMG
+aws_secret_access_key = LTA2BWzmidvlkIwrDrtyhy/tNz2sZjhhJTeWBziz
+
 velero install \
     --provider aws \
     --plugins velero/velero-plugin-for-aws:v1.3.0 \
     --bucket $BUCKET \
     --backup-location-config region=$REGION \
     --snapshot-location-config region=$REGION \
-    --secret-file ./credentials-velero
-```
+    --secret-file ./credentials
+NB: make sure you are runing the velero install command in this diretory .aws configure
+
+
+
 
 ```bash
 kubectl get pods -n velero
