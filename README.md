@@ -57,11 +57,7 @@ kubectl get pods -n velero # to check velero pod and see if velero is install
 
 4. Creating application
 
-```bash
-kubectl create deployment testing --image=nginx --replicas=2
-kubectl expose deployment testing --name=test-srv --type=NodePort --port=80
-kubectl port-forward svc/test-srv 8000:80
-```
+create a deployment and a service so that velero will have something to backup
 
 ```bash
 velero backup-location get
