@@ -52,7 +52,7 @@ NB: make sure you are runing the velero install command in this diretory .aws co
 
 
 ```bash
-kubectl get pods -n velero # to check velero pod
+kubectl get pods -n velero # to check velero pod and see if velero is install
 ```
 
 4. Creating application
